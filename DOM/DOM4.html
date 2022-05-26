@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание5</title>
+    <style>
+        p{
+            margin-bottom:2em;
+        }
+        div{
+            border-style: groove;
+            border-color: blueviolet;
+            background-color: navajowhite;
+        }
+        #form, .btn {
+            background-color: blue;/* Цвет заднего фона */
+            color: white;/* Цвет текста */
+            padding: 5px;/*Отступ внутрь у объекта*/
+            width: 200px;/*Ширина кнопки в px */
+            height: 50px;
+            margin-left: 5px;/* Отступ снаружи слева */
+            border-radius: 10px; /*радиус закругления границ*/
+        }
+        text {text-align: center; /*Положение текста посередине */
+        }
+        h3{
+            color: firebrick;
+            background-color: greenyellow;
+
+        }
+        input{
+            size: letter;
+            padding: 5px; /*отступ внутрь у объекта*/
+            width: 725px; /*Ширина поля в px */
+            height:40px;
+            border-style: double; /*стиль границ*/
+            border-radius: 5px; /*радиус закругления границ*/
+            color: blue;
+        }
+        body{
+            background-color: lightblue;
+        }
+
+    </style>
+</head>
+<body>
+<h3 style="margin-top:2em;" > Анкета </h3>
+<label for="name" class="form-label" style="display:inline-block;">Имя</label>
+<input type="email" class="form-control" id="name" style="display:inline-block; width:150px;height:35px">
+<label for="surname" class="form-label" style="margin-left: 40px;">Фамилия</label>
+<input type="email" class="form-control" id="surname"  style="display:inline-block; width:150px;height:35px">
+<label for="group" class="form-label" style="display:inline-block;margin-left: 40px;">Группа</label>
+<input type="email" class="form-control" id="group"  style="display:inline-block; width:150px;height:35px">
+<p style="margin-top:2em;">
+    <button class="btn btn-dark" id="form"> Начать анкетирование </button>
+</p>
+<div id="result" > </div>
+<script>
+    (document.getElementById("form")).addEventListener("click", () =>{
+        const result1 = prompt('Какой предмет вы предпочитаете больше(Математика/Информатика/Физика)?', 'Математика');
+        const result2 = prompt('Какой из предметов по вашему мнению занимает большее количество времени?(Математика/Информатика/Физика)', 'Физика');
+        const result3 = prompt('Хотели бы вы развиваться в сфере BIM-технолоний?(Да/Нет)', 'Да');
+        const result4 = prompt('Планируете ли вы работать в сфере информационных технологий в будущем?(Да/Нет)', 'Да');
+        const result5 = prompt('ПМИ - котики или не котики?', 'Котики');
+
+
+        var container = document.getElementById("result");
+
+        var divName = document.createElement("div")
+        divName.className = "div2";
+        divName.innerHTML = "Ваше имя: " + document.getElementById("name").value;
+
+        var divSurname = document.createElement("div")
+        divSurname.className = "div2";
+        divSurname.innerHTML = "Ваша фамилия: " + document.getElementById("surname").value;
+
+        var divGroup = document.createElement("div")
+        divGroup.className = "div2";
+        divGroup.innerHTML = "Ваша группа: " + document.getElementById("group").value;
+
+        var div1 = document.createElement("div");
+        div1.className = "div1";
+        div1.innerHTML = "Ваш ответ на вопрос: Какой предмет вы предпочитаете больше? - " + result1;
+
+        var div2 = document.createElement("div");
+        div2.className = "div1";
+        div2.innerHTML = "Ваш ответ на вопрос: Какой из предметов по вашему мнению занимает большее количество времени? - " + result2;
+
+        var div3 = document.createElement("div");
+        div3.className = "div1";
+        div3.innerHTML = "Ваш ответ на вопрос: Хотели бы вы развиваться в сфере BIM-технолоний? - " + result3;
+
+        var div4 = document.createElement("div");
+        div4.className = "div1";
+        div4.innerHTML = "Ваш ответ на вопрос: Планируете ли вы работать в сфере информационных технологий в будущем? - " + result4;
+
+        var div5 = document.createElement("div");
+        div5.className = "div1";
+        div5.innerHTML = "Ваш ответ на вопрос: ПМИ - котики или не котики? - " + result5;
+
+        var div = document.createElement("div");
+        div.className = "divA";
+        div.appendChild(divName);
+        div.appendChild(divSurname);
+        div.appendChild(divGroup);
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+        div.appendChild(div4);
+        div.appendChild(div5);
+
+        container.appendChild(div);
+        container.appendChild(document.createElement("p"))
+    });
+
+</script>
+</body>
+</html>

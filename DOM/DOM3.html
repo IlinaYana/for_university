@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Задание1</title>
+    <style>
+        .form-control {
+            text-align: center;
+            width: 50%;
+            height: 120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .formUser div {
+            width:10px;
+            height:25px;
+            display:inline-block;
+        }
+        .divName {
+            background-color: rgba(149, 230, 239, 0.54);
+        }
+        .divA {
+            border: 1px solid gray;
+        }
+        .div1 {
+            background-color: rgba(255, 177, 218, 0.73);
+        }
+        .div2 {
+            background-color: #d6d6ff;
+        }
+        .greet{
+            margin-left: 10%;
+            margin-right: 10%;
+            font-style: oblique;
+            background-color: lemonchiffon;
+            align-self: center;
+        }
+        .greetC{
+            font-size:15px ;
+            font-style: revert;
+            font-weight: bolder;
+            margin-left: 10%;
+            margin-right: 10%;
+            background-color: #d0fffc;
+        }
+
+        #form, .btn {
+            background-color: black;/* Цвет заднего фона */
+            color: white;/* Цвет текста */
+            padding: 5px;/*Отступ внутрь у объекта*/
+            width: 200px;/*Ширина кнопки в px */
+            height: 50px;
+            margin-left: 25%;/* Отступ снаружи слева */
+            border-radius: 5px; /*радиус закругления границ*/
+        }
+        text {text-align: center; /*Положение текста посередине */
+        }
+        h4{
+            border: 4px solid blue;
+            margin-bottom: 2em;
+        }
+        input{
+            padding: 5px; /*отступ внутрь у объекта*/
+            width: 200px; /*Ширина поля в px */
+            max-height: 30px;
+            border-style: double; /*стиль границ*/
+            border-radius: 5px; /*радиус закругления границ*/
+            color: blue;
+
+        }
+    </style>
+</head>
+<body>
+
+<div style="border: 3px solid blue; height: 425px; margin-left: 25em; margin-right: 30em; margin-top: 2em;background-color:#c6e8e8;">
+    <h4> Создание открытки</h4>
+    <div style="height:300px; width:100%; border-left:2px solid #ffcece; background-color:#c6e8e8; padding-left:10px">
+        <p>
+            <label style = "margin-left: 1em; margin-top: 1em;" for="from";> Отправитель </label>
+            <input  id="from">
+            <label  for="to"> Адресат </label>
+            <input  id="to">
+            <p>
+            <label for="theme" > Заголовок </label>
+            <input  id="theme">
+        </p>
+        <p>
+            <label style = "margin-left: 1em;" for="message" class="form-label">Текст сообщения</label>
+            <textarea class="form-control" id="message"></textarea>
+        </p>
+
+        <button class="btn btn-dark" id="send" >Отправить</button>
+    </div>
+</div>
+
+
+<div id="result" style="border: 2px solid blueviolet;  margin-left: 25em; margin-right: 30em; background-color: blanchedalmond"> </div>
+
+<script>
+    (document.getElementById("send")).addEventListener("click", () => {
+        const res = document.getElementById("result");
+        const div0 = document.createElement("div");
+        const div1 = document.createElement("div");
+        const div2= document.createElement("div");
+        const div3= document.createElement("div");
+
+        div0.className = "greet";
+        div1.className = "greet";
+        div2.className = "greetC";
+        div3.className = "greet";
+
+        const div = document.createElement("div");
+        div.className = "divA";
+
+        div0.innerHTML =  "Отправитель: " + document.getElementById("from").value;
+        div1.innerHTML = "Адресат: " + document.getElementById("to").value;
+        if(document.getElementById("theme").value != '')
+        div2.innerHTML = "Заголовок:      " + document.getElementById("theme").value;
+        div3.innerHTML =  document.getElementById("message").value;
+        div.appendChild(div0);
+        div.appendChild(div1);
+        div.appendChild(div2);
+        div.appendChild(div3);
+        res.appendChild(div);
+    });
+
+</script>
+</body>
+</html>

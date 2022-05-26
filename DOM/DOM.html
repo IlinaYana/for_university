@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Задание1</title>
+    <style>
+        #div_form {
+            position: fixed;
+            width: 20vw;
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        #form, .btn {
+            background-color: black;/* Цвет заднего фона */
+            color: white;/* Цвет текста */
+            padding: 5px;/*Отступ внутрь у объекта*/
+            width: 20px;/*Ширина кнопки в px */
+            height: 20px;
+            margin-left: 5px;/* Отступ снаружи слева */
+            border-radius: 10px; /*радиус закругления границ*/
+        }
+        text {text-align: center; /*Положение текста посередине */
+        }
+        h3{
+         color: rebeccapurple;
+         background-color: turquoise;
+        }
+        input{
+            padding: 5px; /*отступ внутрь у объекта*/
+            width: 80px; /*Ширина поля в px */
+            max-height: 15px;
+            border-style: double; /*стиль границ*/
+            border-radius: 5px; /*радиус закругления границ*/
+            color: blue;
+
+        }
+        span{
+            color: red;
+            background-color: lightpink;
+            font-size: 20px;
+        }
+        body{
+            background-color: mistyrose;
+        }
+
+    </style>
+</head>
+<body>
+<div style="text-align: center;">
+    <h3>Простые вычисления</h3>
+    <input class="form-control" id="firstInput">
+    <button class="btn btn-dark" id="plus" >+</button>
+    <button class="btn btn-dark" id="minus">-</button>
+    <button class="btn btn-dark" id="degree">^</button>
+    <button class="btn btn-dark" id="multiply">*</button>
+    <button class="btn btn-dark" id="divide">/</button>
+    <button class="btn btn-dark" id="remainder">%</button>
+    <input class="form-control" id="secondInput">
+    <span id="result"> = </span>
+</div>
+<script>
+    (document.getElementById("plus")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result = number1 + number2;
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+    (document.getElementById("minus")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result = number1 - number2;
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+    (document.getElementById("degree")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result = Math.pow(number1,number2);
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+    (document.getElementById("multiply")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result = number1 * number2;
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+    (document.getElementById("divide")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result;
+        if (number2 != 0) {
+            result = number1 / number2;
+        } else {
+            result = 'Деление на нуль!';
+        }
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+    (document.getElementById("remainder")).addEventListener("click", () => {
+        const number1 = Number(document.getElementById("firstInput").value);
+        const number2 = Number(document.getElementById("secondInput").value);
+        let result = number1%number2;
+        document.getElementById("result").innerHTML = ' = ' + result;
+    });
+
+</script>
+</body>
+</html>
